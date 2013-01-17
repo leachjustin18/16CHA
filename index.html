@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset=utf-8>
+        <link rel="stylesheet" type="text/css" href="media/main.css">
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    </head>
+    <body>
+        <div id="wrapper">
+        	<div class="instructions">Click each image to view characteristics of an adnormal PIV assessment:</div>
+        	<div id="interBox">
+        		<div id="interArea">
+        			<div id="bImageInf">
+        				<div id="bImage"><img src="" id="mainImage" /></div>
+        				<div id="info" >
+        					<div id="1" class="hidden">Blanching of the skin, skin tautness, or blister formation around the insertion site.</div>
+        					<div id="2" class="hidden">Erythema or pain at the insertion site.</div>
+        					<div id="3" class="hidden">Red streak formation up the extremity or palpable cord.</div>
+        					<div id="4" class="hidden">Purulent drainage at the insertion site.</div>
+        					<div id="5" class="hidden">Presence of swelling/edema at or around the area of insertion.</div>
+        					<div id="6" class="hidden">Loose, non-occlusive dressing, or insertion site not visible.</div>
+        					<div id="7" class="hidden">Moist or saturated dressing.</div>
+        				</div>
+
+        			</div>
+        			<div id="sImages">
+        					<ul>
+        					    <li><img src="media/blisters_light.png" rel="media/blisters_light.png" alt="blisters" class="rImage" number="1"/></li>
+        					    <li><img src="media/erythemia_light.png" rel="media/erythemia_light.png" alt="erythemia" class="rImage" number="2"/></li>
+        					    <li><img src="media/phlebitis_light.png" rel="media/phlebitis_light.png" alt="phlebitis" class="rImage" number="3"/></li>
+        					    <li><img src="media/shot_light.png" rel="media/shot_light.png" alt="shot" class="rImage" number="4"/></li>
+        					    <li><img src="media/swelling_light.png" rel="media/swelling_light.png" alt="swelling" class="rImage" number="5"/></li>
+        					    <li><img src="media/taped_light.png" rel="media/taped_light.png" alt="taped" class="rImage" number="6"/></li>
+        					    <li><img src="media/wound_light.png" rel="media/wound_light.png" alt="wound" class="rImage" number="7"/></li>
+        					</ul>
+        			</div>	
+        		</div>
+        	</div>
+        </div>
+             <script type="text/javascript" charset="utf-8">
+        	(function(){
+        		var $sel = {
+        			rI: $('.rImage'), 
+        			hide: $('.hidden')
+        		};
+        		$sel.rI.click(function(){
+        			var $this = $(this);
+        			var alt = this.alt;
+        			var num = $this.attr('number'); 
+        			$sel.hide.hide();
+        			$('#' + num).fadeIn();
+        			//Instead of $sel.mI.attr('src', 'media/' + alt + '.png'); for performance improvment 
+        			document.getElementById('mainImage').src = 'media/' + alt + '.png';
+        			$sel.rI.each(function(){
+        				var $this = $(this);
+        				$this.prop('src', $this.attr('rel'));
+        			});
+        			$this.prop('src', 'media/' + alt + '_over.png');
+        		});
+        		function preload(arrayOfImages) {
+					$(arrayOfImages).each(function() {
+					$('<img/>')[0].src = this;
+		});
+	};
+	preload(['media/blisters.png', 'media/blisters_light.png', 'media/blisters_over.png', 'media/erythemia.png', 'media/erythemia_light.png', 'media/erythemia_over.png', 'media/phlebitis.png', 'media/phlebitis_light.png','media/phlebitis_over.png','media/shot.png','media/shot_light.png','media/shot_over.png','media/swelling.png','media/swelling_over.png', 'media/swelling_light.png', 'media/taped.png', 'media/taped_light.png', 'media/taped_over.png', 'media/wound.png', 'media/wound_light.png', 'media/wound_over.png']);
+        	})();
+        </script>
+    </body>
+</html>	

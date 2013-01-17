@@ -1,0 +1,1 @@
+Created a page where you would see multiple images on the side. After clicking one it would appear in the middle and "activate" it on the side.  Instead of just using jQuery I wanted to see how I could improve performance by using raw JS and putting the JS on the bottom of the body. 
